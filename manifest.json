@@ -1,10 +1,10 @@
 {
     "BundleType": "Application",
     "AppIcon": {
-        "36x18": "tutorial.png"
+        "36x18": "picture.png"
     },
     "AppName": {
-        "en": "Tutorial"
+        "en": "Spotify Alarm"
     },
     "SupportedLanguages": [
         "en"
