@@ -1,39 +1,43 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+  <title>Spotify Alarm Clock</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
 <body>
   <h3>Welcome to Spotify Alarm</h3>
 <p>Please enter your desired alarm time.</p>
 
-<select>
-    <option value="AM">AM</option>
-    <option value="PM">PM</option>
-</select>
 <br>
 </br>
-<form>
-<label for="Hour">Hour</label>
 
+<form class="time">
+<div>
+  <select name="meridian">
+    <option value="AM" selected="selected">AM</option>
+    <option value="PM">PM</option>
+  </select>
+</div>
 
-<select>
-    <option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-<option value="11">11</option>
-<option value="12">12</option>
-</select>
+<div>
+  <select>
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+  </select>
+</div>
 
-<br />
-<label for="Minute">Minute</label>
-
-
-<select id = "Minute">
+<div>
+  <select id = "Minute">
      <option value=1>01</option>
      <option value=2>02</option>
      <option value=3>03</option>
@@ -94,7 +98,8 @@
      <option value=58>58</option>
      <option value=59>59</option>
      <option value=60>60</option>
-</select>
+  </select>
+<div>
 </form>
 </body>
 </html>
