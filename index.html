@@ -101,5 +101,13 @@
   </select>
 <div>
 </form>
+<script>
+  $(document).ready(function(){
+    selectedTime = $(".time").serializeArray();
+    $(".time").change(function(){
+      selectedTime = $(".time").serializeArray();
+    });
+  });
+</script>
 </body>
 </html>
