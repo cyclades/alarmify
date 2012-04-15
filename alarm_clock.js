@@ -1,4 +1,3 @@
-//Time
 $(document).ready(function(){
   //load the relevant libraries
   
@@ -10,13 +9,14 @@ $(document).ready(function(){
   var library     = models.library;
   var application = models.application;
   var playerImage = new views.Player();
+  var storedTrack;
 
   var handleLinks = function() {
     var links = models.application.links;
     if(links.length) {
       switch(links[0].split(":")[1]) {
         default:
-          player.play(models.Track.fromURI(links[0]));
+          storedTrack = models.Track.fromURI(links[0]);
           break;
       };
     };
@@ -30,4 +30,70 @@ $(document).ready(function(){
   });
 
   handleLinks();
+
+  //read s
+  var selectedTime = $(".time").serializeArray();
+  var today = new Date();
+  var userDate = new Date();
+
+  if(selectedTime[0].value == "AM"){
+    userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate() , selectedTime[1].value, selectedTime[2].value, 0, 0);
+    if(userDate<today){
+      userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate()+1 , selectedTime[1].value,selectedTime[2].value, 0, 0);
+    };
+  }
+  else{
+    userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate() , selectedTime[1].value+12, selectedTime[2].value, 0, 0);
+    if(userDate<today){
+      userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate()+1 , selectedTime[1].value+12,selectedTime[2].value, 0, 0);
+    };
+  };
+
+ 
+  $(".time").change(function(){
+
+  if(init == null){
+    init = setInterval(checkTime,3000);
+  }
+   
+  selectedTime = $(".time").serializeArray();
+  userDate.setHours(selectedTime[1].value);
+  userDate.setMinutes(selectedTime[2].value);
+
+  if(selectedTime[0].value == "AM"){
+    if(userDate<today){
+       userDate.setDate(today.getDate() + 1);
+     };
+   }
+   else if(selectedTime[0].value=="PM"){
+     userDate.setHours(userDate.getHours() + 12);
+     if(userDate<today){
+       userDate.setDate(today.getDate() + 1);
+     };
+   };
+
+   if(userDate.getDate() > today.getDate() && (userDate.getHours() > today.getHours() || userDate.getHours() == today.getHours() && userDate.getMinutes() > today.getMinutes())){
+     userDate.setDate(userDate.getDate() - 1);
+   }
+
+   if(userDate.getDate() < today.getDate() && (userDate.getHours() < today.getHours() || userDate.getHours() == today.getHours() && userDate.getMinutes() < today.getMinutes())){
+     userDate.setDate(userDate.getDate() + 1);
+   }
+
+ });
+
+ var init = setInterval(checkTime,3000);
+
+ function checkTime(){
+     today = new Date();
+     console.log(userDate);
+     console.log(today);
+     if(userDate<=today){
+           console.log("ALGLIFJDISALJG");
+           player.play(storedTrack);
+           clearInterval(init);
+           init = null;
+     };
+ };
+
 });
