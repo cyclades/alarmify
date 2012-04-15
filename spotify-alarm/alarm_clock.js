@@ -19,6 +19,10 @@ $(document).ready(function(){
 
  
  $(".time").change(function(){
+
+   if(init == null){
+     init = setInterval(checkTime,3000);
+   }
    
    selectedTime = $(".time").serializeArray();
    userDate.setHours(selectedTime[1].value);
@@ -56,6 +60,8 @@ $(document).ready(function(){
      console.log(today);
      if(userDate<=today){
            console.log("ALGLIFJDISALJG");
+           clearInterval(init);
+           init = null;
      };
  };
 
