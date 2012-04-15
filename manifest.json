@@ -1,5 +1,8 @@
 {
     "BundleType": "Application",
+    "AcceptedLinkTypes": [
+        "track"
+    ],
     "AppIcon": {
         "36x18": "picture.png"
     },
