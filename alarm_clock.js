@@ -17,7 +17,8 @@ $(document).ready(function(){
       switch(links[0].split(":")[1]) {
         default:
           storedTrack = models.Track.fromURI(links[0]);
-          $("#now-playing").html("<p>"+storedTrack.data.name+"</p>");
+          var pasta = models.Track.fromURI(links[0])["name"];
+
           break;
       };
     };
@@ -90,7 +91,7 @@ $(document).ready(function(){
      //console.log(userDate);
      //console.log(today);
      if(userDate<=today){
-           console.log("ALGLIFJDISALJG");
+           //console.log("ALGLIFJDISALJG");
            player.play(storedTrack);
            clearInterval(init);
            init = null;
@@ -100,6 +101,7 @@ $(document).ready(function(){
  //Blinky colon
  function blinkColon(){
     ($(".colon").css("opacity") == "1") ? $(".colon").css({opacity: 0.0}) : $(".colon").css({opacity: 1.0});
+    $("#now-playing").html("<p>"+storedTrack+"</p>");
  }
 
  var blink = setInterval(blinkColon, 500)
