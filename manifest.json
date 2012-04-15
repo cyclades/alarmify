@@ -4,7 +4,7 @@
         "track"
     ],
     "AppIcon": {
-        "36x18": "picture.png"
+        "18x18": "alarmclock.png"
     },
     "AppName": {
         "en": "Spotify Alarm"
