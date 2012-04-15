@@ -36,16 +36,16 @@ $(document).ready(function(){
   var today = new Date();
   var userDate = new Date();
 
-  if(selectedTime[0].value == "AM"){
-    userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate() , selectedTime[1].value, selectedTime[2].value, 0, 0);
+  if(selectedTime[2].value == "AM"){
+    userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate() , selectedTime[0].value, selectedTime[1].value, 0, 0);
     if(userDate<today){
-      userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate()+1 , selectedTime[1].value,selectedTime[2].value, 0, 0);
+      userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate()+1 , selectedTime[0].value,selectedTime[1].value, 0, 0);
     };
   }
   else{
-    userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate() , selectedTime[1].value+12, selectedTime[2].value, 0, 0);
+    userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate() , selectedTime[0].value+12, selectedTime[1].value, 0, 0);
     if(userDate<today){
-      userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate()+1 , selectedTime[1].value+12,selectedTime[2].value, 0, 0);
+      userDate = new Date(today.getFullYear(),today.getMonth(), today.getDate()+1 , selectedTime[0].value+12,selectedTime[1].value, 0, 0);
     };
   };
 
@@ -57,15 +57,15 @@ $(document).ready(function(){
   }
    
   selectedTime = $(".time").serializeArray();
-  userDate.setHours(selectedTime[1].value);
-  userDate.setMinutes(selectedTime[2].value);
+  userDate.setHours(selectedTime[0].value);
+  userDate.setMinutes(selectedTime[1].value);
 
-  if(selectedTime[0].value == "AM"){
+  if(selectedTime[2].value == "AM"){
     if(userDate<today){
        userDate.setDate(today.getDate() + 1);
      };
    }
-   else if(selectedTime[0].value=="PM"){
+   else if(selectedTime[2].value=="PM"){
      userDate.setHours(userDate.getHours() + 12);
      if(userDate<today){
        userDate.setDate(today.getDate() + 1);

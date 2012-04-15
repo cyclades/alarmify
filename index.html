@@ -2,109 +2,170 @@
 <html>
 <head>
   
-  <title>>Spotify Alarm Clock</title>
-  
+  <title>Alarmify</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed%3A700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'> 
 </head>
-<!--Boot strap spotify api, jquery and program files-->
-<!--<body onload = "sp = getSpotifyApi(1); sp.require('jquery-1.7.2.min'); sp.require('alarm_clock');models = sp.require('sp://import/scripts/api/models');">-->
 <body>
+<style>
+#header{
+background: rgb(100,100,100);
+background-image: url("img/tex2res4.png");
+height: 180px;
+text-align: center;
+}
+body{
+margin: 0;
+background: rgb(220,220,220);
+}
+h3{
+margin: 0;
+line-height: 160px;
+font-family: "Open Sans Condensed",Helvetica, sans-serif;
+color: white;
+font-size: 4em;
+}
+#timeform{
+text-align:center;
+}
+select{
+font-size: 5em;
+}
+.colon{
+font-size: 5em;
+margin-right: -15px;
+}
+#hip{
+background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+height: 15px;
+}
+#hour{
+text-align: right;
+}
+#meridian{
+margin-left: 10px;
+}
+#instructions{
+font-size: 2em;
+text-align:center;
+font-family: "Oxygen",Helvetica, sans-serif;
+}
+
+</style>
   <script src="jquery-1.7.2.min.js"></script>
   <script src="alarm_clock.js"></script>
-  <h3>Welcome to Spotify Alarm</h3>
-<p>Please enter your desired alarm time.</p>
-
-<br>
-</br>
-
+<div id="header">
+<h3>Alarmify</h3>
+</div>
+<div id="hip"></div>
+<div id="instructions">
+<p>When would you like to wake up?</p>
+</div>
+<div id="timeform">
 <form class="time">
-<div>
-  <select name="meridian">
-    <option value="AM" selected="selected">AM</option>
-    <option value="PM">PM</option>
-  </select>
-</div>
 
-<div>
-  <select name="hour">
-    <option value="1" selected="selected">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-  </select>
-</div>
 
-<div>
-  <select name="minute">
-     <option value=0>00</option>
-     <option value=1>01</option>
-     <option value=2>02</option>
-     <option value=3>03</option>
-     <option value=4>04</option>
-     <option value=5>05</option>
-     <option value=6>06</option>
-     <option value=7>07</option>
-     <option value=8>08</option>
-     <option value=9>09</option>
-     <option value=10>10</option>
-     <option value=11>11</option>
-     <option value=12>12</option>
-     <option value=13>13</option>
-     <option value=14>14</option>
-     <option value=15>15</option>
-     <option value=16>16</option>
-     <option value=17>17</option>
-     <option value=18>18</option>
-     <option value=19>19</option>
-     <option value=20>20</option>
-     <option value=21>21</option>
-     <option value=22>22</option>
-     <option value=23>23</option>
-     <option value=24>24</option>
-     <option value=25>25</option>
-     <option value=26>26</option>
-     <option value=27>27</option>
-     <option value=28>28</option>
-     <option value=29>29</option>
-     <option value=30>30</option>
-     <option value=31>31</option>
-     <option value=32>32</option>
-     <option value=33>33</option>
-     <option value=34>34</option>
-     <option value=35>35</option>
-     <option value=36>36</option>
-     <option value=37>37</option>
-     <option value=38>38</option>
-     <option value=39>39</option>
-     <option value=40>40</option>
-     <option value=41>41</option>
-     <option value=42>42</option>
-     <option value=43>43</option>
-     <option value=44>44</option>
-     <option value=45>45</option>
-     <option value=46>46</option>
-     <option value=47>47</option>
-     <option value=48>48</option>
-     <option value=49>49</option>
-     <option value=50>50</option>
-     <option value=51>51</option>
-     <option value=52>52</option>
-     <option value=53>53</option>
-     <option value=54>54</option>
-     <option value=55>55</option>
-     <option value=56>56</option>
-     <option value=57>57</option>
-     <option value=58>58</option>
-     <option value=59>59</option>
-  </select>
-<div>
+<span>
+<select id="hour" name="hour">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+</span>
+<span class="colon">
+:
+</span>
+<span>
+<select name="minute">
+<option value=0>00</option>
+<option value=1>01</option>
+<option value=2>02</option>
+<option value=3>03</option>
+<option value=4>04</option>
+<option value=5>05</option>
+<option value=6>06</option>
+<option value=7>07</option>
+<option value=8>08</option>
+<option value=9>09</option>
+<option value=10>10</option>
+<option value=11>11</option>
+<option value=12>12</option>
+<option value=13>13</option>
+<option value=14>14</option>
+<option value=15>15</option>
+<option value=16>16</option>
+<option value=17>17</option>
+<option value=18>18</option>
+<option value=19>19</option>
+<option value=20>20</option>
+<option value=21>21</option>
+<option value=22>22</option>
+<option value=23>23</option>
+<option value=24>24</option>
+<option value=25>25</option>
+<option value=26>26</option>
+<option value=27>27</option>
+<option value=28>28</option>
+<option value=29>29</option>
+<option value=30>30</option>
+<option value=31>31</option>
+<option value=32>32</option>
+<option value=33>33</option>
+<option value=34>34</option>
+<option value=35>35</option>
+<option value=36>36</option>
+<option value=37>37</option>
+<option value=38>38</option>
+<option value=39>39</option>
+<option value=40>40</option>
+<option value=41>41</option>
+<option value=42>42</option>
+<option value=43>43</option>
+<option value=44>44</option>
+<option value=45>45</option>
+<option value=46>46</option>
+<option value=47>47</option>
+<option value=48>48</option>
+<option value=49>49</option>
+<option value=50>50</option>
+<option value=51>51</option>
+<option value=52>52</option>
+<option value=53>53</option>
+<option value=54>54</option>
+<option value=55>55</option>
+<option value=56>56</option>
+<option value=57>57</option>
+<option value=58>58</option>
+<option value=59>59</option>
+</select>
+</span>
+
+<span>
+<select id="meridian" name="meridian">
+<option value="AM">AM</option>
+<option value="PM">PM</option>
+</select>
+</span>
 </form>
+<div id="song-box">
+<p>You will wake up to</p>
+<div id="now-playing"></div>
+</div>
 </body>
 </html>
