@@ -17,6 +17,7 @@ $(document).ready(function(){
       switch(links[0].split(":")[1]) {
         default:
           storedTrack = models.Track.fromURI(links[0]);
+          $("#now-playing").html("<p>"+storedTrack.data.name+"</p>");
           break;
       };
     };
@@ -53,7 +54,7 @@ $(document).ready(function(){
   $(".time").change(function(){
 
   if(init == null){
-    init = setInterval(checkTime,3000);
+    init = setInterval(checkTime, 500);
   }
    
   selectedTime = $(".time").serializeArray();
@@ -82,12 +83,12 @@ $(document).ready(function(){
 
  });
 
- var init = setInterval(checkTime,3000);
+ var init = setInterval(checkTime, 500);
 
  function checkTime(){
      today = new Date();
-     console.log(userDate);
-     console.log(today);
+     //console.log(userDate);
+     //console.log(today);
      if(userDate<=today){
            console.log("ALGLIFJDISALJG");
            player.play(storedTrack);
