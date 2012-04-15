@@ -97,4 +97,11 @@ $(document).ready(function(){
      };
  };
 
+ //Blinky colon
+ function blinkColon(){
+    ($(".colon").css("opacity") == "1") ? $(".colon").css({opacity: 0.0}) : $(".colon").css({opacity: 1.0});
+ }
+
+ var blink = setInterval(blinkColon, 500)
+
 });
