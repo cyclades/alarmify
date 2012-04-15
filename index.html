@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>Spotify Alarm Clock</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
-<body>
+<body onload = "sp = getSpotifyApi(1); sp.require('jquery-1.7.2.min'); sp.require('alarm_clock');">
   <h3>Welcome to Spotify Alarm</h3>
 <p>Please enter your desired alarm time.</p>
 
@@ -101,13 +100,5 @@
   </select>
 <div>
 </form>
-<script>
-  $(document).ready(function(){
-    selectedTime = $(".time").serializeArray();
-    $(".time").change(function(){
-      selectedTime = $(".time").serializeArray();
-    });
-  });
-</script>
 </body>
 </html>
